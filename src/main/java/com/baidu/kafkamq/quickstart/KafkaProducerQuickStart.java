@@ -20,9 +20,10 @@ public class KafkaProducerQuickStart {
         //生产者
         KafkaProducer kafkaProducer = new KafkaProducer<>(properties);
         //生产消息
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 30; i++) {
             //消息对象
-            ProducerRecord<String, String> record = new ProducerRecord<>("topic01", "key" + 1, "value" + 1);
+            ProducerRecord<String, String> record = new ProducerRecord<>("topic01", "key" + i, "value" +i);
+            //ProducerRecord<String, String> record = new ProducerRecord<>("topic01",  "value" +i);
             kafkaProducer.send(record);
         }
         kafkaProducer.close();
