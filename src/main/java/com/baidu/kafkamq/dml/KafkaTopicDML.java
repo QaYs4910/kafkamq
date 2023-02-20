@@ -1,4 +1,4 @@
-package com.baidu.kafkamq;
+package com.baidu.kafkamq.dml;
 
 import org.apache.kafka.clients.admin.*;
 
@@ -21,15 +21,15 @@ public class KafkaTopicDML {
          *  topics.all().get(); 改为同步
          */
         //创建topic
-        CreateTopicsResult topics = adminClient.createTopics(Arrays.asList(new NewTopic("topic02", 3, (short) 3)));
-        topics.all().get();
+//        CreateTopicsResult topics = adminClient.createTopics(Arrays.asList(new NewTopic("topic02", 3, (short) 3)));
+//        topics.all().get();
 //
 //        //删除topic
-        DeleteTopicsResult deleteTopicsResult = adminClient.deleteTopics(Arrays.asList("topic01", "topic02", "topic03"));
-        deleteTopicsResult.all().get(); //同步方式
+//        DeleteTopicsResult deleteTopicsResult = adminClient.deleteTopics(Arrays.asList("topic01", "topic02"));
+//        deleteTopicsResult.all().get(); //同步方式
 //
 //        //获取topic详细信息
-        DescribeTopicsResult topic05 = adminClient.describeTopics(Arrays.asList("topic02"));
+        DescribeTopicsResult topic05 = adminClient.describeTopics(Arrays.asList("topic01"));
         Map<String, TopicDescription> stringTopicDescriptionMap = topic05.all().get();
         for (Map.Entry<String,TopicDescription> entry:
                 stringTopicDescriptionMap.entrySet()) {
